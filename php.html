@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Lista de Produtos</h1>
+
+    <?php
+    
+    $produtos = [
+        ["id" => 1, "nome" => "Camiseta", "preco" => 49.99],
+        ["id" => 2, "nome" => "Calça Jeans", "preco" => 89.99],
+        ["id" => 3, "nome" => "Tênis Esportivo", "preco" => 120.00],
+        ["id" => 4, "nome" => "Jaqueta de Couro", "preco" => 250.00],
+        ["id" => 5, "nome" => "Boné", "preco" => 29.99]
+    ];
+
+   
+    if (count($produtos) > 0) {
+        echo "<table><tr><th>ID</th><th>Nome</th><th>Preço</th></tr>";
+
+       
+        foreach ($produtos as $produto) {
+            echo "<tr><td>" . $produto["id"] . "</td><td>" . $produto["nome"] . "</td><td>R$ " . number_format($produto["preco"], 2, ',', '.') . "</td></tr>";
+        }
+
+        echo "</table>";
+    } else {
+        echo "<p style='text-align: center;'>Nenhum produto encontrado.</p>";
+    }
+    ?>
+    
+</body>
+</html>
